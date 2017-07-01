@@ -30,7 +30,7 @@ This will install RawPHP and all required dependencies. RawPHP requires PHP 5.5.
 ### PHP's inbuilt server
 After RawPHP has installed, you can run it by using the built-in PHP server. Navigate to the root folder and run the below command:
 ```bash
-$ php -S localhost:8000
+$ php -S localhost:8000 -t public
 ```
 Going to http://localhost:8000/hello/world will now display "Hello, world".
 
