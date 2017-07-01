@@ -1,7 +1,7 @@
 {
     "name": "partner/rawphp",
     "type": "project",
-    "description": "RawPHP is a PHP framework that helps you quickly write simple yet powerful web applications and APIs combining the inifinite powers of Laravel and CakePHP in one application. You can write both laravel and cakephp code inside RawPHP! ",
+    "description": "RawPHP is currently the most powerful framework in the world because of its ability to combine the infinite powers of raw PHP, Laravel, CakePHP and Slim frameworks. It is PHP framework that helps you quickly write simple yet powerful web applications and APIs. You can write both laravel, Slim and cakephp code inside RawPHP! ",
     "keywords": ["framework","micro","api","router", "services", "Slim" , "laravel", "cakephp", "framework", "nigeria"],
     "homepage": "https://fb.com/daveozoalor",
     "license": "MIT",
