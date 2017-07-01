@@ -8,6 +8,8 @@
 RawPHP is a framework for :
 1. Those who already know some PHP but don't want to go through the pain of learning huge PHP frameworks but still wish to leverage their strengths.
 2. Those who wish to get the best of CakePHP, Laravel and Slim in one super light framework.
+
+RawPHP comes with complete user authentication system built-in and ready to use out of the box.
  
 This framework combines only the good parts of raw PHP , Laravel , Cakephp and Slim. You can use their Laravel Eloquent ORM, CakePHP ORM, Slim's routing and so on inside this framework. And it still manages to be very light weight and super fast.
 It is revolutionary. If you already code any of the frameworks above, there is nothing really to learn. Just pick it up and start building your next project. 
