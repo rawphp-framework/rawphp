@@ -1,6 +1,7 @@
 <?php 
 
 namespace App\Middlewares;
+ 
 /**
 * Base middleware
 */

@@ -17,8 +17,8 @@
 
 
           <div class="col-md-5 col-lg-6 pull-left " >
-            <img src="{{ base_url()}}/img/icons/png/Infinity-Loop.png" alt="Welcome to PowerGridPHP">
-            <h4>PowerGridPHP</h4>
+            <img src="{{ base_url()}}/img/icons/png/Infinity-Loop.png" alt="Welcome to RawPHP">
+            <h4>RawPHP Framework</h4>
           </div>
 
 		<div class="col-md-6 col-lg-6 pull-right">
@@ -56,15 +56,15 @@
               <input type="password" class="form-control login-field" value=""  name="password" placeholder="Password" id="login-pass">
               <label class="login-field-icon fui-lock" for="login-pass"></label>
               {% if errors.password %}
-              	<span class="help-block">{{ errors.last_name | first }}</span>
+              	<span class="help-block">{{ errors.password | first }}</span>
               {% endif %}	
             </div>
 
             <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
             
              {{ csrf.field | raw }}
-            <a class="login-link" href="#">Login</a>
-            <a class="login-link" href="#">Lost your password?</a>
+            <a class="login-link" href="{{ path_for('auth.signin')}}">Login</a>
+            <a class="login-link" href="{{ path_for('auth.password.forgot')}}">Lost your password?</a>
             </form>
           </div>
           </div>

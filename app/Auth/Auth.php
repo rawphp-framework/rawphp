@@ -48,7 +48,7 @@ class Auth{
 	/**
 	* Log User Out by deleting session
 	*/
-	pubic function logout(){
+	public function logout(){
 		unset($_SESSION['user']);
 	}
 	
