@@ -35,7 +35,7 @@ $ php -S localhost:8000 -t public
 Going to http://localhost:8000/hello/world will now display "Hello, world".
 
 ### Wamp, LAMP or XAMP server
-Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and access it by visiting the url on your browser `localhost/rawPHp/
+Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and access it by visiting the url on your browser `localhost/your-rawphp-folder/public
 
 
 For more information on how to configure your web server, see the [Documentation](https://www.slimframework.com/docs/start/web-servers.html).
