@@ -25,3 +25,10 @@
   {{ flash.getMessage('error') | first }}
 </div>
 {% endif %}
+
+{% if flash.getMessage('default') %}
+<div class="alert alert-default" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  {{ flash.getMessage('default') | first }}
+</div>
+{% endif %}

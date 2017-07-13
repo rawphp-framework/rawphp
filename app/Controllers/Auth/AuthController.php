@@ -67,7 +67,7 @@ class AuthController extends Controller{
 	}
 	
 	/**
-	* 
+	* Sign this user up
 	* @param post $request items to be saved in databse
 	* 
 	* @return

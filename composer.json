@@ -24,7 +24,8 @@
         "illuminate/database": "^5.4",
         "respect/validation": "^1.1",
         "slim/csrf": "^0.8.1",
-        "slim/flash": "^0.2.0"
+        "slim/flash": "^0.2.0",
+        "cakephp/orm": "^3.4"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5",
