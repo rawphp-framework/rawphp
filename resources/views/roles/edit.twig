@@ -1,0 +1,60 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="rolelist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">{{ role.name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                <div class="login-form" >
+          <form action="{{ path_for('roles.edit', {'id': role.id}) }}" method="post" autocomplete="off"> 
+            <div class="form-group {{ errors.name ? 'has-error' : '' }}">
+              <input type="text" class="form-control login-field" value="{{ role.name }}"  name="name" placeholder="Enter your name" >
+              <label class="login-field-icon fui-user" for="name"></label>
+              {% if errors.name %}
+              	<span class="help-block">{{ errors.name | first }}</span>
+              {% endif %}
+            </div>
+
+            
+              <div class="form-group {{ errors.description ? 'has-error' : '' }}">
+              <input type="text" class="form-control login-field"  name="description" placeholder="Enter description" >
+              <label class="login-field-icon fui-user" for="description"></label>
+              {% if errors.description %}
+              	<span class="help-block">{{ errors.description | first }}</span>
+              {% endif %}
+            </div>
+            
+           
+            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+            
+             {{ csrf.field | raw }}
+            </form>
+          </div>
+            </div>
+            
+        </div>
+        
+       </div>
+    </div>
+		<div class="text-center">
+           <p> <a href="{{ path_for('roles.add') }}" class="btn btn-primary">New role</a> </p>
+              <p><a href="{{ path_for('roles.index' ) }}" class="btn btn-primary">List Roles</a>
+                </p>
+                <p>      <a onclick="return confirm('Are you sure you wish to delete this role? This is not advisable, it may throw up errors in your code, instead edit the role.');" 
+                    href="{{path_for('roles.delete', {'id' :  role.id } )}}" role="button" class="btn btn-warning" data-toggle="modal"><i class="icon-remove"></i> Delete</a>
+         </p>
+        </div>
+    </div>
+    </div>
+{% endblock %}

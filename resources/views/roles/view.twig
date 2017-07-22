@@ -1,0 +1,49 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+<div class="row">
+	<div class="col-md-10">
+		<div id="postlist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">{{ role.name }}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                {{ role.description }} 
+            </div>
+            
+            <!-- <div class="panel-footer">
+                <span class="label label-default">Welcome</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
+            </div> -->
+        </div>
+        
+       </div>
+    </div>
+    <!-- Only the owner of this post and the admin can edit and delete it -->
+     {% if auth.user.role_id <= 3 %}
+		<div class="text-center">
+            <p><a href="{{ path_for('roles.edit', {'id': role.id } ) }}" class="btn btn-primary">Edit Role</a>
+            <p><a href="{{ path_for('roles.index' ) }}" class="btn btn-primary">List Roles</a>
+                </p>
+                <p> <a onclick="return confirm('Are you sure you wish to delete this Role?');"  href="{{ path_for('roles.delete', {'id': role.id } ) }}" class="btn btn-warning">Delete Rike</a>
+        
+                </p>
+          </div>
+             
+    {% endif %}
+    </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+{% endblock %}

@@ -1,8 +1,11 @@
+# Uncomment the following to prevent the httpoxy vulnerability
+# See: https://httpoxy.org/
+#<IfModule mod_headers.c>
+#    RequestHeader unset Proxy
+#</IfModule>
+
 <IfModule mod_rewrite.c>
-	RewriteEngine on
-	# Uncomment if you have a .well-known directory in the root folder, e.g. for the Let's Encrypt challenge
-	# https://tools.ietf.org/html/rfc5785
-	#RewriteRule ^(\.well-known/.*)$ $1 [L]
-	RewriteRule ^$ public/ [L]
-	RewriteRule (.*) public/$1 [L]
+    RewriteEngine on
+    RewriteRule    ^$    public/    [L]
+    RewriteRule    (.*) public/$1    [L]
 </IfModule>

@@ -23,7 +23,7 @@
 
 		<div class="col-md-6 col-lg-6 pull-right">
 		
-		<h4><span class="fui-user"></span> Sign up</h4>
+		<h4><span class="fui-user"></span> Edit Profile</h4>
 
           <div class="login-form" >
           <form action="{{ path_for('auth.signup') }}" method="post" autocomplete="off"> 
@@ -49,6 +49,14 @@
               
               {% if errors.email %}
               	<span class="help-block">{{ errors.email | first }}</span>
+              {% endif %}	
+            </div>
+            <div class="form-group {{ errors.phone ? 'has-error' : '' }}">
+              <input type="phone" class="form-control login-field" value="{{ old.phone }}" name="phone" placeholder="Enter your email" id="login-email">
+              <label class="login-field-icon fui-user" for="phone"></label>
+              
+              {% if errors.email %}
+              	<span class="help-block">{{ errors.phone | first }}</span>
               {% endif %}	
             </div>
 

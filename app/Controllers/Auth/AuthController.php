@@ -21,41 +21,40 @@ class AuthController extends Controller{
 	
 	}
 	
-	/**
-	* Display sign in page
-	* 
-	* @return
-	*/
-	public function getSignin($request , $response){
-	
-	return $this->view->render($response,'auth/signin.twig');
-	}
+
 	
 	/**
 	* Display sign in page
 	* 
 	* @return
 	*/
-	public function postSignin($request, $response){
+	public function signin($request, $response){
 		
-		$auth = $this->auth->attempt(
-			$request->getParam('email'),
-			$request->getParam('password')
-		);
+		if($request->isPost()){
+
+			//Attempt to log user in
+				$auth = $this->auth->attempt(
+					$request->getParam('email'),
+					$request->getParam('password')
+				);
+			
+			//if login fails
+			if(!$auth){
+				$this->flash->addMessage('error', 'Login Failed!'); //You can also use error, info, warning
+				return $response->withRedirect($this->router->pathFor('auth.signin'));
+			};
+			
+			$this->flash->addMessage('success', 'Login successful!'); //You can also use error, info, warning
+			
+			return $response->withRedirect($this->router->pathFor('home'));
+		}
+
+		return $this->view->render($response,'auth/signin.twig');
 		
-		if(!$auth){
-			$this->flash->addMessage('error', 'Login Failed!'); //You can also use error, info, warning
-		
-			return $response->withRedirect($this->router->pathFor('auth.signin'));
-		};
-		
-		$this->flash->addMessage('success', 'Logiin successful!'); //You can also use error, info, warning
-		
-		return $response->withRedirect($this->router->pathFor('home'));
 	}
 	
 	/**
-	* Render Signin view
+	* Render Signin up
 	* @param get $request
 	* 
 	* 
@@ -89,7 +88,7 @@ class AuthController extends Controller{
 		
 		//redirect if validation fails
 		if($validation->failed()){
-			$this->flash->addMessage('error', 'Signup Failed'); //You can also use error, info, warning
+			$this->flash->addMessage('error', 'Signup Failed!'); //You can also use error, info, warning
 		
 			return $response->withRedirect($this->router->pathFor('auth.signup')); 
 		}
@@ -100,7 +99,7 @@ class AuthController extends Controller{
 			'last_name' => $request->getParam('last_name'),
 			'email' => $request->getParam('email'),
 			//harsh password with PHPs inbuilt password harsher
-			'password' => password_hash($request->getParam('email'), PASSWORD_DEFAULT) //PASSWORD_BCRYPT is also available
+			'password' => password_hash($request->getParam('password'), PASSWORD_DEFAULT) //PASSWORD_BCRYPT is also available
 		]);
 		
 		$this->flash->addMessage('success', 'Signup successful'); //You can also use error, info, warning

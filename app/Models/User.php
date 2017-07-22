@@ -11,7 +11,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 /**
 * To enable CakePHP's ORM, uncomment the line below
- Read more => https://book.cakephp.org/3.0/en/orm.html 
+* Read more => https://book.cakephp.org/3.0/en/orm.html 
 */
 
 //use Cake\ORM\TableRegistry; 
@@ -24,16 +24,23 @@ class User extends Model
 	protected $table = 'users';
 	
 	protected $fillable = [
+		'id',
 		'first_name',
 		'last_name',
 		'email',
-		'password'
+		'password',
+		'phone',
+		'gender',
 	];
 	
 	public function setPassword($password){
 		$this->update([
 			'password' => password_hash($password, PASSWORD_DEFAULT),
 		]);
+	}
+	//every user belongs to a role
+	public function role(){
+		return $this->belongsTo('App\Models\Role');
 	}
 	
 }

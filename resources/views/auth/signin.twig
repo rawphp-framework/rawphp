@@ -3,7 +3,7 @@
 	{% block content %}
 
         <div class="col-md-12 col-lg-12 " >
-        		<!-- Display Errors --> 
+   	<!-- Display Errors and Session Messages iF Any--> 
 			 {% for error in errors %}
 				{% for error_message in error %}
 		       		 <div class="alert alert-danger alert-dismissible" role="alert">
@@ -13,9 +13,10 @@
 		    	{% endfor %}
 		    {% endfor %}
 
+
           <div class="col-md-5 col-lg-6 pull-left " >
-            <img src="{{ base_url()}}/img/icons/png/Infinity-Loop.png" alt="Welcome to PowerGridPHP">
-            <h4>PowerGridPHP</h4>
+            <img src="{{ base_url()}}/img/icons/png/Infinity-Loop.png" alt="Welcome to RawPHP">
+            <h4>RawPHP</h4>
           </div>
 
 		<div class="col-md-6 col-lg-6 pull-right">

@@ -5,11 +5,11 @@ namespace App\Validation\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;
 
-class MatchesPasswordException extends ValidationException{
+class FieldsMatchException extends ValidationException{
 	
 	public static $defaultTemplates = [
         self::MODE_DEFAULT => [
-            self::STANDARD => 'Password does not match your current passwod.' 
+            self::STANDARD => 'The two fields need to match' 
         ]
     ];
 }

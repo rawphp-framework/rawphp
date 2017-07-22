@@ -1,0 +1,45 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+
+<h3> Registered roles </h3>
+<div class="well col-md-10  col-lg-10 " >
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+           {% for role in roles %}
+                    
+        <tr>
+          <td>{{ role.id }}</td>
+          <td><a href="{{path_for('roles.view', {'id' :  role.id } )}}">{{ role.name }} </a> </td>
+          <td>{{ role.description }} </td>
+          
+          <td>
+              <a href="{{path_for('roles.edit', {'id' :  role.id } )}}">
+              <i class="icon-pencil"></i>Edit</a> | 
+              <a 	onclick="return confirm('Are you sure you wish to delete this role? This is not advisable, it may throw up errors in your code, instead edit the role.');" 
+                    href="{{path_for('roles.delete', {'id' :  role.id } )}}" role="button" data-toggle="modal"><i class="icon-remove"></i> Delete</a>
+          </td>
+        </tr>
+
+                {% endfor %}
+
+      </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+           <p> <a href="{{ path_for('roles.add') }}" class="btn btn-primary">New role</a> </p>
+            
+        </div>
+
+
+    {% endblock %}

@@ -1,34 +1,35 @@
+
 {% if flash.getMessage('info') %}
-<div class="alert alert-info" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<div class="row text-center  text-center alert alert-info" role="alert" >
+  <span class="text-center  glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   {{ flash.getMessage('info') | first }}
 </div>
 {% endif %}
 
 {% if flash.getMessage('warning') %}
-<div class="alert alert-warning" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<div class="row text-center  alert alert-warning" role="alert">
+  <span class="text-center  glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   {{ flash.getMessage('warning') | first }}
 </div>
 {% endif %}
 
 {% if flash.getMessage('success') %}
-<div class="alert alert-primary" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<div class="row text-center  alert alert-primary" role="alert">
+  <span class="text-center  glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   {{ flash.getMessage('success') | first }}
 </div>
 {% endif %}
 
 {% if flash.getMessage('error') %}
-<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<div class="row text-center  alert alert-danger" role="alert">
+  <span class="text-center  glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   {{ flash.getMessage('error') | first }}
 </div>
 {% endif %}
 
 {% if flash.getMessage('default') %}
-<div class="alert alert-default" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<div class="row text-center  alert alert-default" role="alert">
+  <span class="text-center  glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   {{ flash.getMessage('default') | first }}
 </div>
 {% endif %}

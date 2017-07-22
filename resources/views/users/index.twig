@@ -1,0 +1,56 @@
+{% extends 'templates/app.twig' %}
+
+	{% block content %}
+
+<h3> Registered users </h3>
+<div class="well">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Joined</th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+           {% for user in users %}
+                    
+        <tr>
+          <td>{{ user.id }}</td>
+          <td><a href="{{path_for('users.view', {'id' :  auth.user.id } )}}">{{ user.first_name }} </a> </td>
+          <td><a href="{{path_for('users.view', {'id' :  auth.user.id } )}}">{{ user.last_name }} </a> </td>
+          
+          <td>{{ user.email }} </td>
+          <td>{{ user.created_at }} </td>
+          <td>
+              <a href="{{path_for('users.edit', {'id' :  auth.user.id } )}}">
+              <i class="icon-pencil"></i>Edit</a>
+              <a 	onclick="return confirm('Are you sure you wish to delete this User?');" 
+                    href="{{path_for('users.delete', {'id' :  auth.user.id } )}}" role="button" data-toggle="modal"><i class="icon-remove"></i> Delete</a>
+          </td>
+        </tr>
+
+                {% endfor %}
+
+      </tbody>
+    </table>
+</div>
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Delete Confirmation</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text">Are you sure you want to delete the user?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+    </div>
+</div>
+
+    {% endblock %}

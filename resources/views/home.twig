@@ -2,33 +2,96 @@
 
 	{% block content %}
 
-		Welcome Home! <br/>
-		
-		<p>RawPHP uses <a href="https://bootswatch.com/flatly/">Bootstrap's flat-ui</a> by default, which mean you can use bootstrap on it and you can use flat-ui too. <br/>
-		You will find relevant flat-ui links below </p>
-		
-		
-		<div class="list-group col-md-5">
-  <a href="#" class="list-group-item active">
-    Setup Check List
-  </a>
-  <a href="#" class="list-group-item">Create a database and connect to it
-  </a>
-  <a href="#" class="list-group-item">Create a table</a>
-  <a href="#" class="list-group-item">Create a model for it</a>
-  <a href="#" class="list-group-item">Create a controller for it</a>
-  <a href="#" class="list-group-item">Create a view(s) for it</a>
-</div>
-		
-		<div class="list-group col-md-5">
-  <a href="#" class="list-group-item active">
-    Important
-  </a>
-  <a href="#" class="list-group-item">You can edit this page by editing the file at 'resources/views/home.twig'
-  </a>
-  <a href="#" class="list-group-item">Create a table</a>
-</div>
-		
 
 
-	{% endblock%}
+  <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wow fadeInRight" data-wow-delay="0.5s">
+                    <h1 class="page-header">Welcome to RawPHP framework</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="wow fadeInDown" data-wow-delay="0.5s" >
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-check"></i>Awesome Features!</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p> 
+                              <ul>
+                              <li> Elegant Syntax </li>
+                              <li> Cool <a href="https://laravel.com/docs/5.2/eloquent">Laravel</a> and 
+                              <a href="https://book.cakephp.org/3.0/en/orm.html">CakePHP</a> ORM </li>
+                              <li> <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/features/csrf.md"> Cross Site Request Forgery Protection </a> </li>
+                              <li> Very Neat <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/objects/router.md"> Routing </a> </li>
+                              <li> The perfect <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/objects/request.md" >REST API platform </a></li>
+                              <li> Powerful <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/features/templates.md" > Templating engine</a> </li>
+                              <li> <a href="https://bootswatch.com/flatly/">Flat-Ui </a> already setup by default </li>
+                              </ul>
+
+                            
+                            </p>
+                            <a href="#" class="btn btn-default">Learn More</a>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <section class="wow fadeInDown" data-wow-delay="0.5s">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-gift"></i> Free & Open Source</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p> RawPHP is free and opensource. It is super easy to learn.
+                            Feel free to:
+                            <ol>
+                               <li> <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/start/installation.md">Installation instructions</a> </li>
+                              <li> <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/tutorial/first-app.md">Getting started tutorial</a> </li>
+                              <li> <a href="https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/tutorial/first-app.md">Getting started tutorial</a> </li>
+                              <li> <a href="https://github.com/rawphp-framework/RawPHP-docs/">Complete documentation</a> </li>
+                             
+                              <li> <a href="https://github.com/rawphp-framework/rawphp/issues">Got a question? Ask here</a> </li>
+                              <li> <a href="https://github.com/rawphp-framework/rawphp">Star it on Github</a> </li>
+                            
+                            </ol> </p>
+                            <a href="#" class="btn btn-default">Learn More</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4">
+                <div class="wow fadeInDown" data-wow-delay="0.5s">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i> Default Details</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p> 
+                            <ol>
+                              <li> Default user login:
+                              <ul>
+                                  <li> <b>Login:</b> defaultuser@gmail.com <br/> Password: password </li>
+                                  </ul>
+                               </li>
+                             
+                              <li> Default Super Admin login:
+                              <ul>
+                                  <li> <b>Login:</b> defaultadmin@gmail.com <br/> Password: password </li>
+                               </ul>
+                               </li>
+                             
+                             </p>
+                            <a href="#" class="btn btn-default">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	{% endblock %}

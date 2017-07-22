@@ -1,0 +1,36 @@
+{% extends 'templates/app.twig' %}
+
+  {% block content %}   
+    <div class="jumbotron col-md-10 ">
+      <div class="row">
+          <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+              <img src="https://www.svgimages.com/svg-image/s5/man-passportsize-silhouette-icon-256x256.png" alt="stack photo" class="img">
+          </div>
+          <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+              <div class="container" style="border-bottom:1px solid black">
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+              </div>
+                <hr>
+              <ul class="container details">
+                <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>+91 90000 00000</p></li>
+                <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ user.email }}</p></li>
+                <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{ user.created_at }}</p></li>
+                <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="{{ path_for('posts.index', {'id':user.id}) }}">{{ user.first_name }}'s posts</p></a>
+              </ul>
+          </div>
+      </div>
+      </div>
+       <!-- Only the owner of this post and the admin can edit and delete it -->
+     {% if (post.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
+		<div class="text-center">
+            <p><a href="{{ path_for('users.edit', {'id': user.id } ) }}" class="btn btn-primary">Edit Profile</a>
+                </p>
+
+                {% if (auth.user.role_id <= 3 ) %}
+                <p> <a onclick="return confirm('Are you sure you wish to delete this User completely?');"  href="{{ path_for('posts.delete', {'id': user.id } ) }}" class="btn btn-warning">Delete Account</a>       
+                </p>
+                {% endif %}
+          </div>
+             
+    {% endif %}
+{% endblock %}
