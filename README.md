@@ -5,15 +5,9 @@
 [![Total Downloads](https://poser.pugx.org/slim/slim/downloads)](https://packagist.org/packages/partner/rawphp)
 [![License](https://poser.pugx.org/slim/slim/license)](https://packagist.org/packages/partner/rawphp)
 
-RawPHP is a framework for :
-1. Those who already know some PHP but don't want to go through the pain of learning huge PHP frameworks but still wish to leverage their strengths.
-2. Those who wish to get the best of CakePHP, Laravel and Slim in one super light framework.
+RawPHP is powerful and robust PHP framework that helps people from different PHP backgrounds work on the same project seamlessly. You can write Laravel, CakePHP, Slim, Symphone and Procedural PHP code inside it and it all works perfectly. Its the PHP Framework for everyone. RawPHP was built for teams with ever changing team members.
 
-RawPHP comes with complete user authentication system built-in and ready to use out of the box.
- 
-This framework combines only the good parts of raw PHP , Laravel , Cakephp and Slim. You can use their Laravel Eloquent ORM, CakePHP ORM, Slim's routing and so on inside this framework. And it still manages to be very light weight and super fast.
-It is revolutionary. If you already code any of the frameworks above, there is nothing really to learn. Just pick it up and start building your next project. 
-It is powerful and super easy to learn. You can write laravel and cakephp code inside it and get the best of both worlds.
+RawPHP comes with complete user authentication system built-in and ready to use out of the box. 
 
 ## Installation
 
