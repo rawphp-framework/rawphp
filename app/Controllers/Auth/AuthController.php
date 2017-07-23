@@ -12,7 +12,7 @@ class AuthController extends Controller{
 	* 
 	* 
 	*/
-	public function getSignout(){
+	public function getSignout($request, $response){
 		
 		$this->auth->logout();
 		$this->flash->addMessage('success', 'Logout successful'); //You can also use error, info, warning

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2017 at 03:57 PM
+-- Generation Time: Jul 22, 2017 at 08:37 PM
 -- Server version: 5.7.9-log
 -- PHP Version: 7.0.0
 
@@ -23,31 +23,80 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `body`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Forever young by Jayz and Hudson.', '  This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson. This is the content of the post of forever young by Jayz and Hudson.', 7, '2017-07-21 13:44:49', '2017-07-21 13:44:49'),
+(2, 'Mysterious Ways - Song by Punjah Kort', ' This is the description of the song by Punjah Kort, it is soul relieving and self satisfying.', 7, '2017-07-21 17:32:22', '2017-07-21 17:32:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `description`) VALUES
+(1, 'Super Admin', 'This is the super admin, has all rights!'),
+(2, 'Moderator', 'Fewer permissions than admin'),
+(3, 'User', 'Common user');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) DEFAULT '3',
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'John', 'Doe', 'john@doe.com', 'johndoe', NULL, NULL),
-(2, 'Dave', 'Partner', 'dave@gmail.com', '$2y$10$w4RlqCfGIGa4wYRHISDSK.6FvpSK4/VYhheo9s614RxJNOSX8Bv0i', '2017-06-29 06:39:52', '2017-06-29 06:39:52'),
-(3, 'Dave P', 'John', 'davep@gmail.com', '$2y$10$Ph5X2xWD8TBAhUFbcAVwe.wkEH42RaUB7ievzWa1Q/fc.znLwNfwO', '2017-06-29 12:46:07', '2017-06-29 12:46:07'),
-(4, 'Doe', 'John', 'doeJohn@gmail.com', '$2y$10$e5W4qMJNOYYqiWxDArTuWO9yk6Q/sZNN2BfW7HELavGk2BkjQ6lI6', '2017-06-30 14:14:12', '2017-06-30 14:14:12');
+INSERT INTO `users` (`id`, `role_id`, `first_name`, `last_name`, `email`, `password`, `gender`, `phone`, `created_at`, `updated_at`) VALUES
+(1, 3, 'John', 'Doeadmin', 'defaultadmin@gmail.com', '$2y$10$/idREEAxZSQpGaAV4ugXSO5mDyyyThE/LZnpWeUovbo8nbZaBEMRq', 'male', NULL, '2017-06-29 06:39:52', NULL),
+(2, 3, 'Jenny', 'Doeuser', 'defaultuser@gmail.com', '$2y$10$/idREEAxZSQpGaAV4ugXSO5mDyyyThE/LZnpWeUovbo8nbZaBEMRq', 'female', '0802222', '2017-06-29 06:39:52', '2017-06-29 06:39:52');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
