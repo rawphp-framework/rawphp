@@ -17,6 +17,8 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install Ra
 $ composer require partner/rawphp "^1.0"
 ```
 
+Otherwise, you can just clone this repository into your local machine, then CD into it and run `composer install` in your command line. 
+
 This will install RawPHP and all required dependencies. RawPHP requires PHP 5.5.0 or newer.
 
 ## Usage
