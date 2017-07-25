@@ -10,25 +10,26 @@ RawPHP is powerful and robust PHP framework that helps people from different PHP
 RawPHP comes with complete user authentication system built-in and ready to use out of the box. 
 
 ## Installation
-
-It's recommended that you use [Composer](https://getcomposer.org/) to install RawPHP.
+There are two ways to install RawPHP:
+* It's recommended that you use [Composer](https://getcomposer.org/) to install RawPHP.
 
 ```bash
-$ composer require partner/rawphp "^1.0"
+$ composer require partner/rawphp
 ```
 
-Otherwise, you can just clone this repository into your local machine, then CD into it and run `composer install` in your command line. 
+* The second way is that you can just clone this repository into your local machine, then CD into it and run `composer install` in your command line. 
 
-This will install RawPHP and all required dependencies. RawPHP requires PHP 5.5.0 or newer.
+Both methods install RawPHP and all required dependencies. RawPHP requires PHP 5.5.0 or newer.
 
 ## Usage
 
+There are two ways to run RawPHP
 ### PHP's inbuilt server
 After RawPHP has installed, you can run it by using the built-in PHP server. Navigate to the root folder and run the below command:
 ```bash
 $ php -S localhost:8000 -t public
 ```
-Going to http://localhost:8000/hello/world will now display "Hello, world".
+Going to http://localhost:8000/ will now display your default Homepage.
 
 ### Wamp, LAMP or XAMP server
 Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and access it by visiting the url on your browser `localhost/your-rawphp-folder/public
@@ -44,6 +45,7 @@ To execute the test suite, you'll need phpunit.
 $ phpunit
 ```
 
+Now you have a copy of RawPHP and it's working fine, you'll need to setup your RawPHP database to complete this installation. The full [installation instructions are here](https://github.com/rawphp-framework/rawphp-docs/blob/master/docs/start/installation.md) . Enjoy.
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
