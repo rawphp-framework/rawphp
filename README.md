@@ -11,13 +11,15 @@ RawPHP comes with complete user authentication system built-in and ready to use 
 
 ## Installation
 There are two ways to install RawPHP:
+
+* The first way is to clone `https://github.com/rawphp-framework/rawphp.git` into your local machine, then CD into it and run `composer install` in your command line. 
+
 * It's recommended that you use [Composer](https://getcomposer.org/) to install RawPHP.
 
 ```bash
 $ composer require partner/rawphp
 ```
 
-* The second way is that you can just clone this repository into your local machine, then CD into it and run `composer install` in your command line. 
 
 Both methods install RawPHP and all required dependencies. RawPHP requires PHP 5.5.0 or newer.
 
