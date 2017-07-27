@@ -1,4 +1,5 @@
-<nav class="navbar navbar-inverse navbar-embossed col-md-12" role="navigation">
+
+<nav class="navbar navbar-inverse  col-md-12" role="navigation">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,16 +12,16 @@
                 <!-- If User is logged in -->
                 {% if auth.check %}
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ auth.user.first_name }} {{ auth.user.last_name }} <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-o" aria-hidden="true"></i> {{ auth.user.first_name }} {{ auth.user.last_name }} <b class="caret"></b></a>
                   <span class="dropdown-arrow"></span>
                   <ul class="dropdown-menu">
-                    <li><a href="{{ path_for('users.view', { 'id': auth.user.id }) }}">My Profile</a></li>
+                    <li><a href="{{ path_for('users.view', { 'id': auth.user.id }) }}"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
                    
-                    <li><a href="{{ path_for('posts.index', {'user_id':  auth.user.id }) }}">My Posts</a></li> 
-                    <li><a href="{{ path_for('auth.password.change') }}">Change Password</a></li>
+                    <li><a href="{{ path_for('posts.index', {'user_id':  auth.user.id }) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> My Posts</a></li> 
+                    <li><a href="{{ path_for('auth.password.change') }}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
 
                     <li class="divider"></li>
-                     <li><a href="{{ path_for('auth.signout')}}">Logout</a></li>
+                     <li><a href="{{ path_for('auth.signout')}}"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
                   </ul>
                 </li> 
 
@@ -38,18 +39,18 @@
                           {% endif %}
                 
                 {% else %}
-                 <li><a href="{{ path_for('auth.signup')}}">Signup</a></li>
-                 <li><a href="{{ path_for('auth.signin')}}">Signin</a></li>
+                 <li><a href="{{ path_for('auth.signup')}}"><i class="fa fa-sign-in" aria-hidden="true"></i> Signup</a></li>
+                 <li><a href="{{ path_for('auth.signin')}}"><i class="fa fa-unlock" aria-hidden="true"></i> Signin</a></li>
                 
                 {% endif %}
-                <li><a href="{{ path_for('about')}}">About Us</a></li>
+                <li><a href="{{ path_for('about')}}"><i class="fa fa-address-book-o" aria-hidden="true"></i> About Us</a></li>
                </ul>
                <form class="navbar-form navbar-right" action="#" role="search">
                 <div class="form-group">
                   <div class="input-group">
                     <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
                     <span class="input-group-btn">
-                      <button type="submit" class="btn"><span class="fui-search"></span> Search</button>
+                      <button type="submit" class="btn btn-primary"><span class="fui-search"></span> Search</button>
                     </span>
                   </div>
                 </div>
