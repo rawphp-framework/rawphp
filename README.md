@@ -27,7 +27,7 @@ Both methods install RawPHP and all required dependencies. RawPHP requires PHP 5
 
 There are two ways to run RawPHP
 
-### PHP's inbuilt server
+### Running your app
 After RawPHP has installed, you can run it by using the built-in PHP server. Navigate to the root folder and run the below command:
 ```
 $ php -S localhost:8000 -t public
@@ -40,6 +40,9 @@ Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and acces
 
 
 For more information on how to configure your web server, see the [Documentation](https://www.slimframework.com/docs/start/web-servers.html).
+
+## Join RawPHP Mailing List (Recommended)
+Join [this mailing list](http://eepurl.com/cXRGdD)
 
 ## Tests
 
