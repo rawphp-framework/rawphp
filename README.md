@@ -12,13 +12,13 @@ RawPHP comes with complete user authentication system built-in and ready to use 
 ## Installation
 There are two ways to install RawPHP:
 
-* The first way is to clone `https://github.com/rawphp-framework/rawphp.git` into your local machine, then CD into it and run `composer install` in your command line. If you don't have composer already installed in your system, do download and installed  [Composer](https://getcomposer.org/) . 
+* The first way, (recommended) is to use [Composer](https://getcomposer.org/) to install RawPHP.
+Navigate to the folder in your computer where you wish to install RawPHP, then run the below code in your command line
+```
+$ composer create-project --prefer-dist partner/rawphp
+```
 
-* The second way is to use [Composer](https://getcomposer.org/) to install RawPHP.
-Navigate to the folder you wish to install RawPHP, then run the below code in your command line
-```
-$ composer require partner/rawphp
-```
+* The second way (only use this if the first method doesn't work for you) is to clone `https://github.com/rawphp-framework/rawphp.git` into your local machine, then CD into it and run `composer install` in your command line. If you don't have composer already installed in your system, do download and installed  [Composer](https://getcomposer.org/) . 
 
 
 Both methods install RawPHP and all required dependencies. RawPHP requires PHP 5.5.0 or newer.
@@ -26,10 +26,12 @@ Both methods install RawPHP and all required dependencies. RawPHP requires PHP 5
 ## Usage
 
 There are two ways to run RawPHP
-### PHP's inbuilt server
+
+### Running your app
 After RawPHP has installed, you can run it by using the built-in PHP server. Navigate to the root folder and run the below command:
-```bash
+```
 $ php -S localhost:8000 -t public
+
 ```
 Going to http://localhost:8000/ will now display your default Homepage.
 
@@ -38,6 +40,9 @@ Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and acces
 
 
 For more information on how to configure your web server, see the [Documentation](https://www.slimframework.com/docs/start/web-servers.html).
+
+## Join RawPHP Mailing List (Recommended)
+Join [this mailing list](http://eepurl.com/cXRGdD)
 
 ## Tests
 
@@ -48,20 +53,21 @@ $ phpunit
 ```
 
 Now you have a copy of RawPHP and it's working fine, you'll need to setup your RawPHP database to complete this installation. The full [installation instructions are here](https://github.com/rawphp-framework/rawphp-docs/blob/master/docs/start/installation.md) . Enjoy.
+
+## Documentation
+Below is the  link to the documentation and tutorials
+
+- [Documentation](https://github.com/rawphp-framework/rawphp-docs)
+- [Sample blog application tutorial](https://github.com/rawphp-framework/RawPHP-docs/blob/master/docs/tutorial/first-app.md)
+- Build a Job recruitment platform using this [Youtube Video Tutorials](https://www.youtube.com/watch?v=hzRXYrdR4m0&list=PLnBvgoOXZNCM_cxMH8rhLVch_YQbUL5el)
+- [Website](https://github.com/rawphp-framework/rawphp-website)
+
+
 ## Contributing
+If you make any tutorial on RawPHP, please [report it as an issue](https://github.com/rawphp-framework/rawphp/issues) so we can add it to one of the resources. 
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## Learn More
-Since RawPHP was built using the best parts of CakePHP, Laravel and Slim, you can always consult the documentation of any of them to learn more about RawPHP
-You can also create an issue on this repo to get better clarifications if you have any questions.
-Learn more at these links:
-
-- [Website](https://www.slimframework.com)
-- [Documentation](https://www.slimframework.com/docs/start/installation.html)
-- [Support Forum](http://discourse.slimframework.com)
-- [Twitter](https://twitter.com/slimphp)
-- [Resources](https://github.com/xssc/awesome-slim)
 
 ## Security
 
