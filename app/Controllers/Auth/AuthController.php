@@ -30,6 +30,13 @@ class AuthController extends Controller{
 	*/
 	public function signin($request, $response){
 		
+		//if user is logged in redirect to home 
+		if($this->auth->user()){
+			$this->flash->addMessage('info', 'You are already logged in!'); 
+			return $response->withRedirect($this->router->pathFor('users.view',['id'=> $this->auth->user()->id]));
+		}
+		
+		
 		if($request->isPost()){
 
 			//Attempt to log user in

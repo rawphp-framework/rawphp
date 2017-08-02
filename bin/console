@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+
+<?php 
+
+require_once __DIR__ . '/../vendor/autoload.php'; 
+ 
+use Symfony\Component\Console\Application; 
+use Make\ModelCommand;
+use Make\ControllerCommand;
+use Make\ViewCommand;
+
+$app = new Application();
+
+$app->add(new ModelCommand());
+$app->add(new ControllerCommand());
+$app->add(new ViewCommand());
+
+$app->run();

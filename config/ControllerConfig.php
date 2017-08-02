@@ -28,3 +28,9 @@ $container['PostsController'] = function($container){
 $container['RolesController'] = function($container){
 	return new \App\Controllers\RolesController($container);
 };
+
+
+ 
+$container['TestsController.'] = function($container){
+	return new \App\Controllers\TestsController.($container);
+};
