@@ -17,11 +17,11 @@ use Illuminate\Database\Eloquent\Model;
 //use Cake\ORM\TableRegistry; 
 
 
-class Post extends Model
+class Book extends Model
 {
 	
-	//optional: define table name if different from 'posts'
-	protected $table = 'posts';
+	//optional: define database table name if different from 'books'
+	protected $table = 'books';
 	
 	protected $fillable = [
 		'id',
@@ -31,8 +31,8 @@ class Post extends Model
 	];
 
 	/**
-	* Every post belongs to a user. 
-	* That is,  posts table has a user_id column which refers to the id of the user
+	* Every book belongs to a user. 
+	* That is,  books table has a user_id column which refers to the id of the user
 	* So let's define the relationship below
 	*/
 	public function user(){

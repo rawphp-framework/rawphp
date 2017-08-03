@@ -4,9 +4,9 @@ namespace App\Controllers;
 use App\Controllers\Controller;
 use App\Models\User;
 use Respect\Validation\Validator as v; 
-use App\Models\Post;
+use App\Models\Book;
 
-class PostsController extends Controller{
+class BooksController extends Controller{
 	
 	/**
 	* List all users
@@ -15,16 +15,16 @@ class PostsController extends Controller{
 	*/
 	public function index($request, $response,  $args){
 
-        //find all posts by the user with this ID
+        //find all books by the user with this ID
         if(isset($args['user_id'])){
-            $posts = Post::where('user_id',$args['user_id'] )->get();
+            $books = Book::where('user_id',$args['user_id'] )->get();
              //get the user's details
 	          $user = User::find($args['user_id']);
 
-              return $this->view->render($response,'posts/index.twig', ['posts'=>$posts, 'user'=>$user]);
+              return $this->view->render($response,'books/index.twig', ['books'=>$books, 'user'=>$user]);
         }else{
-            $posts = Post::all();
-            return $this->view->render($response,'posts/index.twig', ['posts'=>$posts]);
+            $books = Book::all();
+            return $this->view->render($response,'books/index.twig', ['books'=>$books]);
         }
 
 	}
@@ -32,28 +32,28 @@ class PostsController extends Controller{
 
 
 	/**
-	* Display a post
+	* Display a book
 	* 
 	* @return
 	*/
 	public function view($request, $response, $args){
 	
-	    $post = Post::find( $args['id']);
+	    $book = Book::find( $args['id']);
 		
-		return $this->view->render($response,'posts/view.twig', ['post'=>$post]);
+		return $this->view->render($response,'books/view.twig', ['book'=>$book]);
 		
 	}
 
 
 	
 	/**
-	* Create A New Post
+	* Create A New Book
 	* 
 	* @return
 	*/
 	public function add($request, $response,  $args){
 	
-        if($request->isPost()){
+        if($request->isBook()){
            
             /**
             * validate input before submission
@@ -70,47 +70,47 @@ class PostsController extends Controller{
 		if($validation->failed()){
 			$this->flash->addMessage('error', 'Validation Failed!'); 
 		
-			return $response->withRedirect($this->router->pathFor('posts/add.twig')); 
+			return $response->withRedirect($this->router->pathFor('books/add.twig')); 
 		}
 		
-            $post = Post::create([
+            $book = Book::create([
                 'title' => $request->getParam('title'),
                 'body' => $request->getParam('body'),
                 'user_id' => $this->auth->user()->id,
             ]);
 
-                $this->flash->addMessage('success', 'Post Added Successfully');
-                //redirect to eg. posts/view/8 
-                return $response->withRedirect($this->router->pathFor('posts.view', ['id'=>$post->id]));
+                $this->flash->addMessage('success', 'Book Added Successfully');
+                //redirect to eg. books/view/8 
+                return $response->withRedirect($this->router->pathFor('books.view', ['id'=>$book->id]));
            
         }
-		return $this->view->render($response,'posts/add.twig');
+		return $this->view->render($response,'books/add.twig');
 		
 	}
 
     
 	
 	/**
-	* Edit post
+	* Edit book
 	* 
 	* @return
 	*/
 	public function edit($request, $response,  $args){
 	
-              //find the post
-            $post = Post::find( $args['id']);
+              //find the book
+            $book = Book::find( $args['id']);
 
-			//only admin and the person that created the post can edit or delete it.
-			if(($this->auth->user()->id != $post->user_id) OR ($this->auth->user()->role_id < 3) ){
+			//only admin and the person that created the book can edit or delete it.
+			if(($this->auth->user()->id != $book->user_id) OR ($this->auth->user()->role_id < 3) ){
                 
 			$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 
 		
-			return $this->view->render($response,'posts/edit.twig', ['post'=>$post]);
+			return $this->view->render($response,'books/edit.twig', ['book'=>$book]);
 
 			}
 
         //if form was submitted
-        if($request->isPost()){
+        if($request->isBook()){
         
          $validation = $this->validator->validate($request, [
                 'title' => v::notEmpty(),	
@@ -120,39 +120,39 @@ class PostsController extends Controller{
 		if($validation->failed()){
 			$this->flash->addMessage('error', 'Validation Failed!'); 
 		
-			return $this->view->render($response,'posts/edit.twig', ['post'=>$post]);
+			return $this->view->render($response,'books/edit.twig', ['book'=>$book]);
 		}
 		
             //save Data
-            $post =  Post::where('id', $args['id'])
+            $book =  Book::where('id', $args['id'])
                             ->update([
                                 'title' => $request->getParam('title'),
                                 'body' => $request->getParam('body')
                                 ]);
             
-            if($post){
-                $this->flash->addMessage('success', 'Post Updated Successfully');
-                //redirect to eg. posts/view/8 
-                return $response->withRedirect($this->router->pathFor('posts.view', ['id'=>$args['id']]));
+            if($book){
+                $this->flash->addMessage('success', 'Book Updated Successfully');
+                //redirect to eg. books/view/8 
+                return $response->withRedirect($this->router->pathFor('books.view', ['id'=>$args['id']]));
             }
         }
         
 	    
-		return $this->view->render($response,'posts/edit.twig', ['post'=>$post]);
+		return $this->view->render($response,'books/edit.twig', ['book'=>$book]);
 		
 	}
 
 
 /**
-	* Delete a post
+	* Delete a book
 	* 
 	* @return
 	*/
 	public function delete($request, $response,  $args){
-		$user = Post::find( $args['id']);
+		$user = Book::find( $args['id']);
 		if($user->delete()){
-			$this->flash->addMessage('success', 'Post Deleted Successfully');
-			return $response->withRedirect($this->router->pathFor('posts.index', ['user_id'=>$this->auth->user()->id]));
+			$this->flash->addMessage('success', 'Book Deleted Successfully');
+			return $response->withRedirect($this->router->pathFor('books.index', ['user_id'=>$this->auth->user()->id]));
 		}
 	}
 

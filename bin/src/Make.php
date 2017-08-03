@@ -12,9 +12,9 @@ class Make{
 	 */
 	public static function makeController( $controllerName ){
 		//controller name must be camelcased and plural
-		//model file name must be CamelCased and singular eg. Post 
+		//model file name must be CamelCased and singular eg. Book 
 		
-				//model file name must be CamelCased and singular eg. Post 
+				//model file name must be CamelCased and singular eg. Book 
 		
 		//get a sample copy of the text to be written to the controller config 
 		$controllerFile = file_get_contents (__DIR__ .'/templates/Controllers.php');
@@ -84,7 +84,7 @@ class Make{
 	* @return
 	*/
 	public static function makeModel( $modelName ){
-		//model file name must be CamelCased and singular eg. Post 
+		//model file name must be CamelCased and singular eg. Book 
 		
 		//get a sample copy of the model 
 		$modelFile = file_get_contents (__DIR__ .'/templates/Models.php');

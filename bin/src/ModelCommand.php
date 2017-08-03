@@ -26,11 +26,11 @@ class ModelCommand extends Command{
 
 		//Check if model name has a dot, throw error
 	 if( strpos( $input, "." ) !== false ) {
-		   $output->writeln('Error: Your model name cannot contain a dot. Example of a good model name: Post');
+		   $output->writeln('Error: Your model name cannot contain a dot. Example of a good model name: Book');
 		} else if (strtolower($input[0]) == $input[0]){
 			//the model name does not start with a capital letter
 		
-		   $output->writeln('Error: Your model name needs to start with a capital letter. Example of a good model name: Post ');	
+		   $output->writeln('Error: Your model name needs to start with a capital letter. Example of a good model name: Book ');	
 		} else{
 			$result = $make->makeModel($input);
 		$output->writeln('Your model has been created in app/Models/' . $input.'php - here is the result '.$result);

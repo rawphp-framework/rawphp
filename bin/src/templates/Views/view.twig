@@ -3,20 +3,20 @@
 	{% block content %}
 <div class="row">
 	<div class="col-md-10">
-		<div id="postlist">
+		<div id="booklist">
 			<div class="panel">
                 <div class="panel-heading">
                     <div class="text-center">
                         <div class="row">
                             <div class="col-sm-9">
-                                <h3 class="pull-left">{{ post.title }}
-                                    <small class="pull-left "> <a class="btn" href="{{ path_for('users.view', {'id': post.user.id }) }}">
-        {{  post.user.first_name }} {{  post.user.last_name }} </a> </small>
+                                <h3 class="pull-left">{{ book.title }}
+                                    <small class="pull-left "> <a class="btn" href="{{ path_for('users.view', {'id': book.user.id }) }}">
+        {{  book.user.first_name }} {{  book.user.last_name }} </a> </small>
                                 </h3>
                             </div>
                             <div class="col-sm-3">
                                 <h4 class="pull-right">
-                                <small> {{ post.created_at }} </small>
+                                <small> {{ book.created_at }} </small>
                                 </h4>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                 </div>
                 
             <div class="panel-body">
-                {{ post.body }} 
+                {{ book.body }} 
             </div>
             
             <!-- <div class="panel-footer">
@@ -34,12 +34,12 @@
         
        </div>
     </div>
-    <!-- Only the owner of this post and the admin can edit and delete it -->
-     {% if (post.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
+    <!-- Only the owner of this book and the admin can edit and delete it -->
+     {% if (book.user_id == auth.user.id) or (auth.user.role_id <= 3) %}
 		<div class="text-center">
-            <p><a href="{{ path_for('posts.edit', {'id': post.id } ) }}" class="btn btn-primary">Edit post</a>
+            <p><a href="{{ path_for('books.edit', {'id': book.id } ) }}" class="btn btn-primary">Edit book</a>
                 </p>
-                <p> <a onclick="return confirm('Are you sure you wish to delete this Post?');"  href="{{ path_for('posts.delete', {'id': post.id } ) }}" class="btn btn-warning">Delete post</a>
+                <p> <a onclick="return confirm('Are you sure you wish to delete this Book?');"  href="{{ path_for('books.delete', {'id': book.id } ) }}" class="btn btn-warning">Delete book</a>
         
                 </p>
           </div>
