@@ -44,6 +44,36 @@ class Make{
 				fwrite($controllerConfigHandle, "\n". $controllerConfigTemplate);
 				fclose($controllerConfigHandle);
 
+
+//update routes file
+					//get a sample copy of the text to be written to the file config 
+		$routesTemplate = file_get_contents (__DIR__ .'/templates/Routes.php');
+		 $routesTemplate = str_replace('SamplesController',$controllerName, $routesTemplate);
+		 
+		 //remove the Controller in the controller name 
+		 //so SamplesController becomes Samples
+		 $databaseTableName = str_replace("Controller", "", $controllerName);
+		 //convert to lower case 
+		 $databaseTableName = strtolower($databaseTableName);
+		 
+		 //replace all occurences of samples 
+		 $routesTemplate = str_replace('samples',$databaseTableName, $routesTemplate);
+		 
+		 
+		 //remove the <?php opening tag in the template file 
+		 $routesTemplate = str_replace('<?php','', $routesTemplate);
+		 
+		 //find the routes file
+		       $routesFile = __DIR__ . '/../../routes/routes.php';
+		      
+				$routesHandle = fopen($routesFile,"a") or die('Cannot open file:  '.$routesFile); 
+		
+		//append to it
+				fwrite($routesHandle, "\n". $routesTemplate);
+				fclose($routesHandle);
+
+
+
 					
 					return true;
 				}

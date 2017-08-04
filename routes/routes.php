@@ -73,3 +73,5 @@ $app->get('/posts/delete/{id}', 'PostsController:delete')->setName('posts.delete
 
 
 })->add(new AuthMiddleware($container));
+
+ 

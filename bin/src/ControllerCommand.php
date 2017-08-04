@@ -37,7 +37,7 @@ class ControllerCommand extends Command{
 		}else{
 			$result = $make->makeController($input);
 
-		$output->writeln('< fg=green >Your controller has been created in app/Controllers/ </>' . $input.'.php');
+		$output->writeln('<fg=green>Your controller has been created in app/Controllers/</>' . $input.'.php');
 	
 		}
 		

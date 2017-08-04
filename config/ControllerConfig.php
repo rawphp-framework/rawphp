@@ -34,3 +34,11 @@ $container['RolesController'] = function($container){
 $container['TestsController.'] = function($container){
 	return new \App\Controllers\TestsController.($container);
 };
+ 
+$container['TesterresController'] = function($container){
+	return new \App\Controllers\TesterresController($container);
+};
+ 
+$container['Testerre2sController'] = function($container){
+	return new \App\Controllers\Testerre2sController($container);
+};
