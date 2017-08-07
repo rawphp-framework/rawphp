@@ -48,6 +48,14 @@ class RolesController extends Controller{
 	*/
 	public function add($request, $response){
 	
+	if($this->auth->user()->role_id > 2 ){
+                
+			$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 
+		
+			return $this->view->render($response,'/');
+
+			}
+			
         if($request->isPost()){
 
             /**
@@ -133,6 +141,16 @@ class RolesController extends Controller{
 	*/
 	public function delete($request, $response,  $args){
 		$user = Role::find( $args['id']);
+		//only admin can delete
+		if($this->auth->user()->role_id > 2 ){
+                
+			$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 
+		
+			return $this->view->render($response,'/');
+
+			}
+			
+			
 		if($user->delete()){
 			$this->flash->addMessage('success', 'Role Deleted Successfully');
 			return $response->withRedirect($this->router->pathFor('roles.index'));

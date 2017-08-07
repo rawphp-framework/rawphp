@@ -101,7 +101,7 @@ class PostsController extends Controller{
             $post = Post::find( $args['id']);
 
 			//only admin and the person that created the post can edit or delete it.
-			if(($this->auth->user()->id != $post->user_id) OR ($this->auth->user()->role_id < 3) ){
+			if(($this->auth->user()->id != $post->user_id) AND ($this->auth->user()->role_id > 2 ) ){
                 
 			$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 
 		
@@ -150,6 +150,17 @@ class PostsController extends Controller{
 	*/
 	public function delete($request, $response,  $args){
 		$user = Post::find( $args['id']);
+		
+		//only owner and admin can delete
+		if(($this->auth->user()->id != $post->user_id) AND ($this->auth->user()->role_id > 2 ) ){
+                
+			$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 
+		
+			return $this->view->render($response,'posts/view.twig', ['post'=>$post]);
+
+			}
+			
+			
 		if($user->delete()){
 			$this->flash->addMessage('success', 'Post Deleted Successfully');
 			return $response->withRedirect($this->router->pathFor('posts.index', ['user_id'=>$this->auth->user()->id]));

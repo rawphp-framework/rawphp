@@ -45,7 +45,7 @@ class UsersController extends Controller{
 	    $user = User::find( $args['id']);
 
 		//only admin and the person that created the post can edit or delete this profile.
-			if(($this->auth->user()->id != $args['id']) OR ($this->auth->user()->role_id < 3) ){
+			if(($this->auth->user()->id != $args['id']) AND ($this->auth->user()->role_id > 2) ){
 
 				$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 		
 				return $this->view->render($response,'users/view.twig', ['id'=>$args['id']]);
@@ -97,7 +97,17 @@ class UsersController extends Controller{
 	* @return
 	*/
 	public function delete($request, $response,  $args){
-		$user = User::find( $args['id']);
+			$user = User::find( $args['id']);
+			
+		//only owner and admin can delete 
+		if(($this->auth->user()->id != $args['id']) AND ($this->auth->user()->role_id > 2) ){
+
+				$this->flash->addMessage('error', 'You are not allowed to perform this action!'); 		
+				return $this->view->render($response,'users/view.twig', ['id'=>$args['id']]);
+
+			}
+			
+	
 		if($user->delete()){
 			$this->flash->addMessage('success', 'User Account Deleted Successfully');
 			return $response->withRedirect($this->router->pathFor('home'));

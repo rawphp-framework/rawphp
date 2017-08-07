@@ -9,7 +9,7 @@ use App\Models\Book;
 class BooksController extends Controller{
 	
 	/**
-	* List all users
+	* List all books
 	* 
 	* @return
 	*/
@@ -53,7 +53,7 @@ class BooksController extends Controller{
 	*/
 	public function add($request, $response,  $args){
 	
-        if($request->isBook()){
+        if($request->isPost()){
            
             /**
             * validate input before submission
@@ -149,10 +149,10 @@ class BooksController extends Controller{
 	* @return
 	*/
 	public function delete($request, $response,  $args){
-		$user = Book::find( $args['id']);
+		$book = Book::find( $args['id']);
 		if($user->delete()){
 			$this->flash->addMessage('success', 'Book Deleted Successfully');
-			return $response->withRedirect($this->router->pathFor('books.index', ['user_id'=>$this->auth->user()->id]));
+			return $response->withRedirect($this->router->pathFor('books.index'));
 		}
 	}
 
