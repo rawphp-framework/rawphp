@@ -40,8 +40,10 @@ Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and acces
 
 
 For more information on how to configure your web server, see the [Documentation](https://www.slimframework.com/docs/start/web-servers.html).
+## Facebook Group
+[RawPHP Framework on Facebook](https://web.facebook.com/groups/333709167080292/?source=create_flow)
 
-## Join RawPHP Mailing List (Recommended)
+## Mailing List 
 Join [this mailing list](http://eepurl.com/cXRGdD)
 
 ## Tests
