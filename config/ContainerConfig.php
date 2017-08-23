@@ -24,7 +24,14 @@ $container['validator'] = function($container){
 };
 
 $container['csrf'] = function ($container){
-	return new \Slim\Csrf\Guard;
+	//return new \Slim\Csrf\Guard;
+	
+	$guard = new \Slim\Csrf\Guard();
+    $guard->setFailureCallable(function ($request, $response, $next) {
+        $request = $request->withAttribute("csrf_status", true); //set to false if you dont want persistent tokens
+        return $next($request, $response);
+    });
+    return $guard;
 };
 
 
