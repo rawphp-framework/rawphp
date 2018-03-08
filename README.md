@@ -4,6 +4,9 @@ RawPHP is powerful and robust PHP framework that helps people from different PHP
 
 RawPHP comes with complete user authentication system built-in and ready to use out of the box. 
 
+## Tutorial 
+Take the full tutorial here on (Udemy)[https://www.udemy.com/web-development-with-php-build-a-nice-job-recruitment-site/]
+
 ## Installation
 There are two ways to install RawPHP:
 
@@ -31,7 +34,7 @@ $ php -S localhost:8000 -t public
 Going to http://localhost:8000/ will now display your default Homepage.
 
 ### Wamp, LAMP or XAMP server
-Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and access it by visiting the url on your browser `localhost/your-rawphp-folder/public
+Otherwise, you can just put it in your wamp/www or xxamp htdocs folder and access it by visiting the url on your browser `localhost/your-rawphp-folder/public`
 
 
 For more information on how to configure your web server, see the [Documentation](https://www.slimframework.com/docs/start/web-servers.html).
