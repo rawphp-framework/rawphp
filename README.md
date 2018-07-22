@@ -5,7 +5,7 @@ RawPHP is powerful and robust PHP framework that helps people from different PHP
 RawPHP comes with complete user authentication system built-in and ready to use out of the box. 
 
 ## Tutorial 
-Take the full tutorial here on (Udemy)[https://www.udemy.com/web-development-with-php-build-a-nice-job-recruitment-site/]
+Take the full tutorial here on [Udemy](https://www.udemy.com/web-development-with-php-build-a-nice-job-recruitment-site/)
 
 ## Installation
 There are two ways to install RawPHP:
