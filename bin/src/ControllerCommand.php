@@ -29,7 +29,7 @@ class ControllerCommand extends Command{
 		//confirm that it contains the word controller
 		if( strpos( $input, "Controller" ) == false ) {
 		   $output->writeln('<error>Error: Your controller name is not named correctly. It should be in plural and should end with the word Controller. Eg. BooksController </error>');
-		}else if($input{0} !== strtoupper($input{0})){
+		} else if($input(0) !== strtoupper($input(0))){
 				//the first character does not start with an upper case
 				$output->writeln('Error: Your controller name must start with a capital letter eg. BooksController');
 			}else if( strpos( $input, "." ) !== false ) {

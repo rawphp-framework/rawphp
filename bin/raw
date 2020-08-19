@@ -8,6 +8,7 @@ use Symfony\Component\Console\Application;
 use Make\ModelCommand;
 use Make\ControllerCommand;
 use Make\ViewCommand;
+use Phinx\Console\Command;
 
 $app = new Application();
 
@@ -15,4 +16,15 @@ $app->add(new ModelCommand());
 $app->add(new ControllerCommand());
 $app->add(new ViewCommand());
 
+$app->addCommands(array(
+    new Command\Init("migration:Init"),
+    new Command\Create("migration:create"),
+    new Command\Migrate("migration:migrate"),
+    new Command\Rollback("migration:rollback"),
+    new Command\Status("migration:status"),
+    new Command\Breakpoint("migration:breakpoint"),
+    new Command\Test("migration:test"),
+    new Command\SeedCreate("migration:seed-create"),
+    new Command\SeedRun("migration:seed-run"),
+));
 $app->run();
