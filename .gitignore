@@ -1,3 +1,4 @@
 vendor/*
 bootstrap/*
 config/DatabaseConfig.php
+.env
